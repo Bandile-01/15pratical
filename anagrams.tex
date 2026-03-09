@@ -1,27 +1,43 @@
-PrintWriter out = new PrintWriter(new FileWriter("theAnagrams.tex"));
+\documentclass[a4wide,11pt]{report}
+\usepackage{latexsym,graphics,amssymb}
+\usepackage[round]{natbib}
+\usepackage{listings}
+\usepackage{xcolor}
 
-out.println("\\begin{itemize}");
-
-for (String key : D.keySet()) {
-
-    ArrayList<String> list = D.get(key);
-
-    if (list.size() >= 2) {
-
-        out.print("\\item " + key + " : ");
-
-        for (int i = 0; i < list.size(); i++) {
-
-            out.print(list.get(i));
-
-            if (i < list.size() - 1) {
-                out.print(", ");
-            }
-        }
-
-        out.println();
-    }
+\begin{document}
+\setlength{\hoffset}{0pt}
+\setlength{\voffset}{-60pt}
+\addtolength{\textwidth}{72pt}
+\addtolength{\textheight}{144pt}
+\author{
+\\*[+72pt]
+\Huge
+	Reg Dodds\\
+	\vspace{5pt}
+	{\small rdodds@uwc.ac.za}
 }
+\title{
+\fontsize{48pt}{56pt}
+\usefont{OT1}{ptm}{b}{n}
+\centering\color{blue} 
+The Anagrams in Ulysses, by James Joyce}
+\maketitle
+\newpage
+\noindent\copyright{2016} Copyright Reg Dodds.\\
+\newpage
+\renewcommand{\abstractname}{Foreword}
+\begin{abstract}
+This is a crudely produced list of the anagrams found in James Joyce's Ulysses,
+done to illustrate an application of hashing.
+\end{abstract}
+\thispagestyle{empty}
+\setcounter{page}{0}
+\mbox{\ \hspace{12pt}}
+\newpage
 
-out.println("\\end{itemize}");
-out.close();
+\noindent 
+\twocolumn
+\include{theAnagrams}
+\vfill
+\end{document}
+;
